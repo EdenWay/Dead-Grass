@@ -1,0 +1,23 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  canvas {
+    display: block;
+  }
+  
+  #backButton {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: #ccc;
+    font-size: 24px;
+    cursor: pointer;
+    display: none;
+  }
