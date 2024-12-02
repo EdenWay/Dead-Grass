@@ -23,6 +23,8 @@ function draw() {
     fill(255);
     textSize(32);
     text('Press W, A, L, K to start the video', width / 2, height / 2);
+    textSize(14);
+    text('Back', width/ 30, height/30);
   }
 }
 
