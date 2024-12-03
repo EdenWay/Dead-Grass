@@ -26,16 +26,15 @@ let charIndex = 0;
 let typingSpeed = 4;
 let textColor;
 let showBackButton = false;
-let finishedText = false;
 
 let windSound, typingSound;
 let isTyping = false;
 
 function preload() {
-  myGif = createImg("1.gif");
+  myGif = createImg("1.gif", ""); 
   windSound = loadSound("wind.mp3");
   typingSound = loadSound("typing_sound.mp3");
-  font = loadFont("Constantia.ttf"); // Make sure to include the font file in your project
+  font = loadFont("Constantia.ttf"); 
 }
 
 function setup() {
@@ -49,12 +48,16 @@ function setup() {
 
   myGif.position(0, 0);
   myGif.size(width, height);
-  myGif.style("z-index", "-1"); // Ensures it stays behind the text
+  myGif.style("z-index", "-1"); 
+  myGif.style("display", "block"); 
 
   windSound.loop();
 }
 
 function draw() {
+  background(0); 
+  image(myGif.elt, 0, 0, width, height); 
+
   if (frameCount % typingSpeed === 0 && charIndex < textLines[currentLine].length) {
     displayedText += textLines[currentLine].charAt(charIndex);
     charIndex++;
@@ -68,14 +71,13 @@ function draw() {
     typingSound.stop();
     isTyping = false;
     if (currentLine === textLines.length - 1) {
-      finishedText = true;
+      showBackButton = true;
     }
   }
 
   fill(textColor);
-  if (!showBackButton) {
-    text(displayedText, width / 2, height - 150);
-  }
+  text(displayedText, width / 2, height - 150);
+
   if (showBackButton) {
     textAlign(LEFT, TOP);
     text("BACK", 50, 50);
@@ -83,16 +85,15 @@ function draw() {
 }
 
 function mousePressed() {
-  if (showBackButton && mouseX > 50 && mouseX < 200 && mouseY > 50 && mouseY < 100) {
-    window.location.href = "index.html"; // Redirect back to the main page
+  if (showBackButton && mouseX > 50 && mouseX < 150 && mouseY > 50 && mouseY < 100) {
+    window.location.href = "index.html"; 
   }
+
   if (charIndex >= textLines[currentLine].length) {
     if (currentLine < textLines.length - 1) {
       currentLine++;
       displayedText = "";
       charIndex = 0;
-    } else {
-      showBackButton = true;
     }
   }
 }
