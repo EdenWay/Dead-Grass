@@ -4,27 +4,30 @@ let keysPressed = { w: false, a: false, l: false, k: false };
 function setup() {
   createCanvas(windowWidth, windowHeight);
 
-  // Load the video
+  // Load video
   video = createVideo(['02.mp4']);
-  video.hide();  
+  video.hide();  // Hide vid
+  video.loop();  // vid play
 }
 
 function draw() {
   background(0);
 
-  
   if (keysPressed.w && keysPressed.a && keysPressed.l && keysPressed.k) {
+    // Start playing the video when all keys are pressed 
     if (video.time() === 0) {
       video.play(); // Start playing the video when all keys are pressed
     }
-    image(video, 0, 0, width, height); // video
+    // Display vid
+    image(video, 0, 0, width, height); 
   } else {
+    // If the keys are not pressed
     textAlign(CENTER, CENTER);
     fill(255);
     textSize(32);
-    text('Press W, A, L, K to start the video', width / 2, height / 2);
+    text('Press W, A, L, K', width / 2, height / 2);
     textSize(14);
-    text('Back', width/ 30, height/30);
+    text('Back', width / 30, height / 30);
   }
 }
 
