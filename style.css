@@ -1,14 +1,12 @@
-/* Import the Constantia font */
 @font-face {
   font-family: 'Constantia';
   src: url('assets/fonts/Constantia.ttf') format('truetype');
 }
 
-/* General page styling */
 body {
   background: url('assets/dead_grass_texture.jpg') no-repeat center center fixed;
   background-size: cover;
-  color: #F4E6C8; /* Light beige for the rest of the text */
+  color: #F4E6C8;
   font-family: 'Constantia', serif;
   margin: 0;
   height: 100vh;
@@ -29,14 +27,13 @@ h1 {
 }
 
 #dead-grass {
-  color: #cca323; /* Custom golden-brown color for "Dead Grass" */
+  color: #cca323; 
   font-weight: bold;
   font-size: 4rem;
   display: inline-block;
   transition: transform 0.1s ease-in-out;
 }
 
-/* Shaking effect on hover */
 #dead-grass:hover {
   animation: shake 0.5s infinite;
 }
@@ -49,7 +46,6 @@ h1 {
   100% { transform: translate(0, 0); }
 }
 
-/* Project links */
 .projects {
   margin-top: 50px;
   display: flex;
@@ -70,7 +66,6 @@ h1 {
   transition: transform 0.3s ease;
 }
 
-/* Upside-down triangle positioning */
 .project-link:nth-child(1) {
   left: 50%;
   transform: translate(-50%, 0);
