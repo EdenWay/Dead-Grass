@@ -1,4 +1,5 @@
 let myGif;
+let font;
 let textLines = [
   "Do you feel it?",
   "No one is here anymore.",
@@ -13,7 +14,6 @@ let textLines = [
   "But it is not free.",
   "This is going to hurt you a lot.",
   "And me, not at all.",
-  "I am already nothing.",
   "I lay back down in the grass.",
   "The earth doesn’t notice.",
   "I await the rain.",
@@ -24,33 +24,38 @@ let currentLine = 0;
 let displayedText = "";
 let charIndex = 0;
 let typingSpeed = 4;
-let typingSound;
-let windSound;
-let isTyping = false;
 let textColor;
 let showBackButton = false;
 let finishedText = false;
 
+let windSound, typingSound;
+let isTyping = false;
+
 function preload() {
-  myGif = loadImage("1.gif");
-  typingSound = loadSound("typing_sound.mp3");
+  myGif = createImg("1.gif");
   windSound = loadSound("wind.mp3");
+  typingSound = loadSound("typing_sound.mp3");
+  font = loadFont("Constantia.ttf"); // Make sure to include the font file in your project
 }
 
 function setup() {
   createCanvas(1920, 1080);
+  background(0);
   textColor = color(204, 163, 35);
-  textFont("Constantia");
+  textFont(font);
   textSize(48);
+  fill(textColor);
   textAlign(CENTER, BOTTOM);
+
+  myGif.position(0, 0);
+  myGif.size(width, height);
+  myGif.style("z-index", "-1"); // Ensures it stays behind the text
+
   windSound.loop();
 }
 
 function draw() {
-  background(0);
-  image(myGif, 0, 0, width, height);
-
-  if (frameCount % typingSpeed == 0 && charIndex < textLines[currentLine].length) {
+  if (frameCount % typingSpeed === 0 && charIndex < textLines[currentLine].length) {
     displayedText += textLines[currentLine].charAt(charIndex);
     charIndex++;
     if (!isTyping) {
@@ -68,10 +73,10 @@ function draw() {
   }
 
   fill(textColor);
-  text(displayedText, width / 2, height - 150);
-
+  if (!showBackButton) {
+    text(displayedText, width / 2, height - 150);
+  }
   if (showBackButton) {
-    fill(255);
     textAlign(LEFT, TOP);
     text("BACK", 50, 50);
   }
@@ -79,9 +84,8 @@ function draw() {
 
 function mousePressed() {
   if (showBackButton && mouseX > 50 && mouseX < 200 && mouseY > 50 && mouseY < 100) {
-    noLoop();
+    window.location.href = "index.html"; // Redirect back to the main page
   }
-
   if (charIndex >= textLines[currentLine].length) {
     if (currentLine < textLines.length - 1) {
       currentLine++;
