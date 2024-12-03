@@ -41,7 +41,7 @@ function preload() {
 function setup() {
   createCanvas(windowWidth, windowHeight);
   textFont(font);
-  textSize(windowWidth * 0.025); 
+  textSize(windowWidth * 0.025);
   fill(textColor);
   textAlign(CENTER, BOTTOM);
   windSound.loop();
@@ -49,7 +49,21 @@ function setup() {
 
 function draw() {
   background(0);
-  image(myGif, 0, 0, width, height);
+
+  let gifAspect = myGif.width / myGif.height;
+  let canvasAspect = width / height;
+  let gifWidth, gifHeight;
+
+  if (gifAspect > canvasAspect) {
+    gifWidth = width;
+    gifHeight = width / gifAspect;
+  } else {
+    gifHeight = height;
+    gifWidth = height * gifAspect;
+  }
+
+  imageMode(CENTER);
+  image(myGif, width / 2, height / 2, gifWidth, gifHeight);
 
   if (!showBackButton) {
     if (frameCount % typingSpeed === 0 && charIndex < textLines[currentLine].length) {
@@ -68,16 +82,25 @@ function draw() {
     }
 
     fill(textColor);
-    text(displayedText, width / 2, height * 0.9); 
+    text(displayedText, width / 2, height * 0.9);
   }
 
   if (showBackButton) {
     textAlign(LEFT, TOP);
-    text("BACK", width * 0.02, height * 0.02); 
+    text("BACK", width * 0.02, height * 0.02);
   }
 }
 
 function mousePressed() {
+  handleInteraction();
+}
+
+function touchStarted() {
+  handleInteraction();
+  return false; 
+}
+
+function handleInteraction() {
   if (showBackButton && mouseX > width * 0.02 && mouseX < width * 0.2 && mouseY > height * 0.02 && mouseY < height * 0.1) {
     window.location.href = "index.html";
   }
@@ -96,5 +119,5 @@ function mousePressed() {
 
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
-  textSize(windowWidth * 0.025); 
+  textSize(windowWidth * 0.025);
 }
