@@ -1,9 +1,20 @@
+let fullText = " crunches under my weight.";
+let currentText = "";
+let index = 0;
+let typingSpeed = 100; 
+
 function setup() {
-    createCanvas(1920, 1080);
-    background(164, 160, 133);
+  noCanvas(); 
+  typeText();
 }
 
-function draw() {
-    fill(255);
-    ellipse(mouseX, mouseY, 50, 50);
+function typeText() {
+  if (index < fullText.length) {
+    currentText += fullText.charAt(index);
+    document.querySelector('h1').innerHTML = `
+      <span id="dead-grass">Dead Grass</span>${currentText}
+    `;
+    index++;
+    setTimeout(typeText, typingSpeed);
+  }
 }
