@@ -39,9 +39,9 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(1920, 1080);
+  createCanvas(windowWidth, windowHeight);
   textFont(font);
-  textSize(48);
+  textSize(windowWidth * 0.025); 
   fill(textColor);
   textAlign(CENTER, BOTTOM);
   windSound.loop();
@@ -68,17 +68,17 @@ function draw() {
     }
 
     fill(textColor);
-    text(displayedText, width / 2, height - 150);
+    text(displayedText, width / 2, height * 0.9); 
   }
 
   if (showBackButton) {
     textAlign(LEFT, TOP);
-    text("BACK", 50, 50);
+    text("BACK", width * 0.02, height * 0.02); 
   }
 }
 
 function mousePressed() {
-  if (showBackButton && mouseX > 50 && mouseX < 200 && mouseY > 50 && mouseY < 100) {
+  if (showBackButton && mouseX > width * 0.02 && mouseX < width * 0.2 && mouseY > height * 0.02 && mouseY < height * 0.1) {
     window.location.href = "index.html";
   }
 
@@ -92,4 +92,9 @@ function mousePressed() {
       showBackButton = true;
     }
   }
+}
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+  textSize(windowWidth * 0.025); 
 }
