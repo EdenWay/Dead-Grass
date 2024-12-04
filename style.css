@@ -100,3 +100,10 @@ h1 {
   color: #A67F52; /* Slight change on hover */
   transform: scale(1.1);
 }
+#next-group-container {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  opacity: 0.7;
+}
+
