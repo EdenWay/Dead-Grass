@@ -7,8 +7,8 @@ function setup() {
 
   // Load the video
   video = createVideo(['02.mp4']);
-  video.hide();  // Hide the default video player
-  video.loop();  // Make the video loop when played
+  video.hide();  // Hide vid
+  video.loop();  // Make vid loop
 }
 
 function draw() {
