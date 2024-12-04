@@ -2,6 +2,10 @@ let video;
 let keysPressed = { w: false, a: false, l: false, k: false };
 let darkness = 0; // Variable to control the darkness level
 
+function preload() {
+  video = loadvideo("assets/dani.mp4");
+}
+
 function setup() {
   createCanvas(windowWidth, windowHeight);
 
