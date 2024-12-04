@@ -28,7 +28,7 @@ function addNextGroupLink() {
     const nextGroupLink = document.createElement('a');
     nextGroupLink.href = "https://xiasarchive.github.io/whytheheavyfeelingcallsyou/";
     nextGroupLink.textContent = "Next: Why The Heavy Feeling Calls You";
-    nextGroupLink.style.fontSize = "0.8rem";
+    nextGroupLink.style.fontSize = "1rem";
     nextGroupLink.style.color = "#cca323";
     nextGroupLink.style.textDecoration = "none";
     nextGroupLink.style.opacity = "0.7";
