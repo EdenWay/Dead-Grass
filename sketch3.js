@@ -6,7 +6,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
 
   // Load the video
-  video = createVideo(['assets/03.mp4']);
+  video = createVideo(['assets/03.mp4']);" 
   video.hide();  // Hide vid
   video.loop();  // Make vid loop
 }
