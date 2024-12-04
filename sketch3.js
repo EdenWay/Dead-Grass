@@ -7,8 +7,8 @@ function setup() {
 
   // Load the video
   video = createVideo(['assets/dani.mp4']);
-  video.hide();  // Hide vid
-  video.loop();  // Make vid loop
+  video.hide();  // Hide the video element (so it won't appear on the page)
+  video.stop();  // Ensure the video is paused initially
 }
 
 function draw() {
@@ -17,13 +17,13 @@ function draw() {
   // Check if all keys are pressed
   if (keysPressed.w && keysPressed.a && keysPressed.l && keysPressed.k) {
     // Start playing the video when all keys are pressed
-    if (video.time() === 0) {
+    if (!video.isPlaying()) {
       video.play(); // Start playing the video when all keys are pressed
     }
-    // Display the vid
+    // Display the video
     image(video, 0, 0, width, height);
   } else {
-    // If the keys are not pressed
+    // If the keys are not pressed, show instruction text
     textAlign(CENTER, CENTER);
     fill(255);
     textSize(32);
@@ -31,9 +31,8 @@ function draw() {
   
   }
 
-  // Gradually dark
+  // Gradually darken the screen
   darkness = lerp(darkness, 255, 0.002); // Slowly increase the darkness (lerp to 255)
-
   
   fill(0, darkness);
   noStroke();
