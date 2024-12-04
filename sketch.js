@@ -2,6 +2,9 @@ let fullText = " crunches under my weight.";
 let currentText = "";
 let index = 0;
 let typingSpeed = 100; 
+myImg1= createImg("assets/1.png");
+myImg2= createImg("assets/2.png");
+myImg3= createImg("assets/3.png");
 
 function setup() {
   noCanvas(); 
