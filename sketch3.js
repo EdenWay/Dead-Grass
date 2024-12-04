@@ -6,7 +6,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
 
   // Load the video
-  video = createVideo(['02.mp4']);
+  video = createVideo(['dani.mp4']);
   video.hide();  // Hide vid
   video.loop();  // Make vid loop
 }
