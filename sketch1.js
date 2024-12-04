@@ -5,7 +5,9 @@ let isPlaying = false;
 
 function preload(){
     img = loadImage('assets/Grass.png');
-    song = loadSound('assets/1.mp3');
+    song = loadSound("assets/1.mp3");
+    song.setVolume(0.5);
+    song.loop();
 }
 
 function setup(){
@@ -20,8 +22,10 @@ function draw(){
 
 function mousePressed(){
    if(song.isPlaying()){
-   }  song.stop();
+     song.stop();
+   }
       else{
          song.play();
       }
 }
+
