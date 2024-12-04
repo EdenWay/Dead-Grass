@@ -1,3 +1,4 @@
+let img;
 let song1; 
 let isPlaying=false;
 
