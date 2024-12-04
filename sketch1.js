@@ -1,6 +1,6 @@
 let img;
 let song; 
-let isPlaying=false;
+
 
 function preload(){
     img = loadImage('assets/Grass.png');
