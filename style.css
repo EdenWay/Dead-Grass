@@ -97,13 +97,24 @@ h1 {
 }
 
 .project-link:hover {
-  color: #A67F52; /* Slight change on hover */
+  color: #A67F52; 
   transform: scale(1.1);
 }
 #next-group-container {
   position: fixed;
   bottom: 10px;
   right: 10px;
+  font-size: 0.8rem;
+  color: #F4E6C8;
   opacity: 0.7;
 }
 
+#next-group-container a {
+  text-decoration: none;
+  color: #F4E6C8;
+}
+
+#next-group-container a:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
