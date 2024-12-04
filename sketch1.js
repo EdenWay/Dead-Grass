@@ -1,5 +1,6 @@
 let img;
 let song; 
+let isPlaying = false;
 
 
 function preload(){
